@@ -1,0 +1,50 @@
+ReduceWithoutInitialValue takes Arr, ReducingFunc
+  put Arr at 0 into Result
+  put 1 into Idx
+  put Arr into Len
+  while Idx is smaller than Len
+    put Arr at Idx into Ele
+    let Result be ReducingFunc taking Result, Ele
+    let Idx be with 1
+  (end while)
+  return Result
+(end function)
+
+PrintArray takes Arr
+  Joiner takes Str, Ele
+    return Str with " " with Ele
+  (end function)
+  return ReduceWithoutInitialValue taking Arr, Joiner
+(end function)
+
+SelectionSortAndPrint takes Arr
+  put 0 into OuterIdx
+  while OuterIdx is smaller than Arr minus 1
+    put OuterIdx into MinElementIdx
+    put OuterIdx plus 1 into InnerIdx
+    while InnerIdx is smaller than Arr
+      put Arr at InnerIdx into ArrAtInnerIdx
+      put Arr at MinElementIdx into ArrAtMinElementIdx
+      if ArrAtInnerIdx is smaller than ArrAtMinElementIdx
+        let MinElementIdx be InnerIdx
+      (end if)
+      let InnerIdx be with 1
+    (end while)
+    if MinElementIdx ain't OuterIdx
+      put Arr at MinElementIdx into Temp
+      let Arr at MinElementIdx be Arr at OuterIdx
+      let Arr at OuterIdx be Temp
+    (end if)
+    let OuterIdx be with 1
+  (end while)
+  shout PrintArray taking Arr
+(end function)
+
+Rock MyArray with 3, 8, 5, 7, 6
+
+shout "Selection Sort"
+shout "Before"
+Shout PrintArray taking MyArray
+
+shout "After"
+SelectionSortAndPrint taking MyArray

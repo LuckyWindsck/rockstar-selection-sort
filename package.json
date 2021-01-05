@@ -1,0 +1,13 @@
+{
+  "name": "rockstar-selection-sort",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "rockstar": "https://github.com/RockstarLang/rockstar#master"
+  },
+  "scripts": {
+    "build": "yarn --cwd node_modules/rockstar/satriani",
+    "rockstar": "node node_modules/rockstar/satriani/rockstar.js"
+  }
+}
